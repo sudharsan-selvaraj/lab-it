@@ -1,0 +1,33 @@
+{
+  "name": "appium-grid-monorepo",
+  "private": "true",
+  "scripts": {
+    "setup": "run-s bootstrap build-all",
+    "bootstrap": "npm run clean && lerna bootstrap --no-ci",
+    "clean": "run-p clean:*",
+    "build-all": "lerna run build --include-dependencies --stream",
+    "build:libs": "run-p build:common build:socket  build:api_commons  build:logger",
+    "start:hub": "tsc --project ./packages/hub && node packages/hub/build/index.js",
+    "start:node": "tsc --project ./packages/plugin && node packages/plugin/build/index.js",
+    "clean:build": "rimraf ./packages/*/build",
+    "clean:node_modules": "rimraf ./packages/*/node_modules",
+    "build:socket": "tsc --project ./packages/socket --watch",
+    "build:common": "tsc --project ./packages/common --watch",
+    "build:logger": "tsc --project ./packages/logger --watch",
+    "build:api_commons": "tsc --project ./packages/api-commons --watch",
+    "build:hub": "tsc --project ./packages/hub --watch",
+    "build:plugin": "tsc --project ./packages/plugin --watch"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^18.0.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "h264-converter": "^0.1.4",
+    "sqlite3": "^5.0.8"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "name": "appium-node",
+  "version": "1.2.4",
+  "description": "",
+  "main": "build/index",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "install-plugin": "npm run build && appium plugin install --source=local $(pwd)",
+    "reinstall-plugin": "(appium plugin uninstall appium-node || exit 0) && npm run install-plugin"
+  },
+  "bin": {
+    "appium-node": "./build/entry.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "appium": {
+    "pluginName": "appium-node",
+    "mainClass": "AppiumNodePlugin",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema",
+      "additionalProperties": false,
+      "description": "Appium configuration schema for the appium node plugin.",
+      "properties": {
+        "hub-host": {
+          "type": "string"
+        },
+        "hub-port": {
+          "type": "number"
+        },
+        "token": {
+          "type": "string"
+        },
+        "node-name": {
+          "type": "string"
+        },
+        "node-host": {
+          "type": "string"
+        },
+        "adb-port": {
+          "type": "number"
+        }
+      },
+      "title": "Appium Node Configuration",
+      "type": "object"
+    }
+  },
+  "dependencies": {
+    "@appium/base-plugin": "^1.8.5",
+    "@appium/support": "^2.59.2",
+    "@devicefarmer/adbkit": "^3.2.3",
+    "@types/socket.io-client": "^3.0.0",
+    "adbkit-apkreader": "^3.2.0",
+    "appium-adb": "9.5.0",
+    "appium-base-driver": "^7.11.3",
+    "appium-grid-common": "^1.2.4",
+    "appium-grid-logger": "^1.2.4",
+    "appium-grid-socket": "^1.2.4",
+    "appium-ios-device": "^2.4.1",
+    "appium-support": "^2.55.0",
+    "appium-xcuitest-driver": "^4.7.4",
+    "arraybuffer-equal": "^1.0.4",
+    "async-lock": "^1.3.1",
+    "async-wait-until": "^2.0.5",
+    "axios": "^0.27.2",
+    "countries-and-timezones": "^3.3.0",
+    "dotenv": "^16.0.1",
+    "go-ios": "^1.0.79",
+    "node-abort-controller": "^3.0.1",
+    "node-pty": "^0.10.0",
+    "node-simctl": "^7.0.0",
+    "portfinder": "^1.0.28",
+    "reflect-metadata": "^0.1.13",
+    "socket.io-client": "^4.5.1",
+    "tcp-port-used": "^1.0.2",
+    "teen_process": "^2.0.0",
+    "typedi": "^0.10.0",
+    "uuid": "^8.3.2",
+    "ws": "^8.8.1",
+    "yargs": "^17.2.1"
+  },
+  "devDependencies": {
+    "@types/appium-adb": "^9.4.0",
+    "@types/axios": "^0.14.0",
+    "@types/node": "^18.0.6",
+    "@types/teen_process": "^1.16.1",
+    "@types/ws": "^8.5.3",
+    "grunt": "^1.5.3",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-terser": "^2.0.0",
+    "terser-webpack-plugin": "^5.3.5",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "peerDependencies": {
+    "appium": "^2.0.0-beta.40"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,7 @@
+#node
+node_modules
+build
+public
+
+#vscode
+.history

@@ -1,0 +1,18 @@
+#node
+node_modules
+build
+**/*/build
+**/*.d.ts
+**/*.d.ts.map
+dummy.js
+
+#vscode
+.history
+.parcel-cache
+
+#test files
+playground/**/dist
+playground/**/node_modules
+
+#log files
+**/**/*.log
